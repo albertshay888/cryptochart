@@ -56,7 +56,7 @@ export default function App() {
         setTotal(t);
 
       });
-  }, 2000)
+  }, 1000)
   return () =>clearInterval(interval)
  }, []);
  
@@ -140,7 +140,7 @@ export default function App() {
         }
       },
       {
-        Header: "Market Cap and % of Total Market Cap",
+        Header: "Market Cap and MC % of Top 100 Coins",
         accessor: "market_cap",
         Cell: ({ cell: { value } }) => {
        
