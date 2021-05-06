@@ -33,6 +33,7 @@ export default function Table({ columns, data, loading, total }) {
   const firstPageRows = rows.slice(0, 100);
 
   return (
+    
     <>
    
       <table  className="table" {...getTableProps()}>
@@ -44,20 +45,24 @@ export default function Table({ columns, data, loading, total }) {
                 // we can add them into the header props
                 <th className= "table__heading"{...column.getHeaderProps(column.getSortByToggleProps())}>
                   {column.render("Header")}
+                  
                   {/* Add a sort direction indicator */}
                   <span>
-                    {column.isSorted
+                    {column.isSorted 
                       ? column.isSortedDesc
-                        ? " 🔽"
+                        ? " 🔽" 
                         : " 🔼"
-                      : ""}
+                      : "" }
+                      
                   </span>
                 </th>
               ))}
             </tr>
           ))}
         </thead>
+      
         <tbody className="table__body" {...getTableBodyProps()}>
+        
           {firstPageRows.map((row, i) => {
             prepareRow(row);
             return (

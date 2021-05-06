@@ -39,24 +39,27 @@ export default function App() {
   const [users, setUsers] = useState([]);
 
   const [loading, setLoading] = useState(true);
-
+ 
   let t = 0
   useEffect(() => {
     const interval = setInterval(() => {
-    axios
-      .get(
-        "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
-      )
-      .then((res) => {
-        for (let i = 0; i < res.data.length; i++) {
-          t += res.data[i].market_cap
-        }
-        setUsers(res.data);
-        setLoading(false);
-        setTotal(t);
+  
+         axios
+          .get(
+            "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
+          )
+          .then((res) => {
+              for (let i = 0; i < res.data.length; i++) {
+                  t += res.data[i].market_cap
+           }
+           setUsers(res.data);
+           setLoading(false);
+           setTotal(t);
 
       });
-  }, 1000)
+      
+  }, 10000)
+  
   return () =>clearInterval(interval)
  }, []);
  
