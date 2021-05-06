@@ -1,0 +1,19 @@
+{
+  "name": "cryptochart",
+  "version": "1.0.0",
+  "description": "real-time cryptocurrency price table",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/albertshay888/cryptochart.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/albertshay888/cryptochart/issues"
+  },
+  "homepage": "https://github.com/albertshay888/cryptochart#readme"
+}
