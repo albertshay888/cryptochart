@@ -42,7 +42,7 @@ export default function App() {
 
   let t = 0
   useEffect(() => {
-
+    const interval = setInterval(() => {
     axios
       .get(
         "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"
@@ -54,8 +54,11 @@ export default function App() {
         setUsers(res.data);
         setLoading(false);
         setTotal(t);
+
       });
-  }, []);
+  }, 2000)
+  return () =>clearInterval(interval)
+ }, []);
  
   const columns = useMemo(
     () => [
@@ -102,25 +105,13 @@ export default function App() {
       },
     },
     {
-      Header: "Price Change % in 24 hours",
+      Header: "% change in 24 hours",
       accessor: "price_change_percentage_24h",
       Cell: ({ cell: { value } }) => {
         const newP = value.toFixed(3) + "%";
           return (
             <>
             {newP}
-            </>
-          )
-      },
-    },
-    {
-      Header: "Volume",
-      accessor: "total_volume",
-      Cell: ({ cell: { value } }) => {
-        const commaVolume = value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-          return (
-            <>
-            {commaVolume}
             </>
           )
       },
